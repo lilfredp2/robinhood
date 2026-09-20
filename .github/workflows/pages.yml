@@ -36,8 +36,13 @@ jobs:
             echo "ok  $file"
           done
 
+      # enablement turns Pages on (source: GitHub Actions) when it is not on
+      # already, so the first deploy does not depend on someone visiting the
+      # settings page first. It no-ops once Pages is configured.
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # Uploads the repository root; .git and .github are excluded by the action.
       - name: Upload the site
