@@ -1,0 +1,50 @@
+name: Deploy to GitHub Pages
+
+# The repository's default branch. Change this if the default branch is renamed.
+on:
+  push:
+    branches: [claude/website-creation-ea6tti]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a deployment that is already publishing finish rather than cancelling it
+# half-written; a newer run simply queues behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the site
+        uses: actions/checkout@v4
+
+      # The site has no build step, so the only thing worth proving before it
+      # goes out is that the modules still parse.
+      - name: Check that the ES modules parse
+        run: |
+          for file in assets/*.js ledger/assets/*.js; do
+            node --input-type=module --check < "$file" || exit 1
+            echo "ok  $file"
+          done
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Uploads the repository root; .git and .github are excluded by the action.
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
