@@ -49,14 +49,57 @@ export async function encodeSignal(value) {
   return 'P0' + b64url.encode(raw);
 }
 
+/* Pull the code out of whatever was pasted. People paste the invite link as
+   often as the code inside it, so accept both. */
+function unwrapCode(input) {
+  const text = String(input ?? '').trim();
+  const link = /[#&]i=([^&\s]+)/.exec(text);
+  let raw = text;
+  if (link) {
+    try { raw = decodeURIComponent(link[1]); } catch { raw = link[1]; }
+  }
+  return raw.replace(/\s+/g, '');
+}
+
+/* Every step here can fail on a code that was truncated by a chat app, mangled
+   by a copy, or compressed by a browser newer than this one. Each failure gets
+   a message that says what to do about it, because the alternative is a raw
+   DOMException in the dialog. */
 export async function decodeSignal(code) {
-  const text = String(code).trim().replace(/\s+/g, '');
+  const text = unwrapCode(code);
+  if (!text) throw new Error('There is no code here to read.');
+
   const tag = text.slice(0, 2);
   const body = text.slice(2);
-  if (tag !== 'P0' && tag !== 'P1') throw new Error('That does not look like a Parlor code.');
-  let bytes = b64url.decode(body);
-  if (tag === 'P1') bytes = await unsqueeze(bytes, 'deflate-raw');
-  const value = JSON.parse(new TextDecoder().decode(bytes));
+  if (tag !== 'P0' && tag !== 'P1') {
+    throw new Error('That does not look like a Parlor code. It is one long run of letters and numbers beginning with P0 or P1 — the invite link containing it works here too.');
+  }
+  if (tag === 'P1' && typeof DecompressionStream !== 'function') {
+    throw new Error('That code is compressed and this browser cannot unpack it. Chrome 103, Firefox 113 and Safari 16.4 — or anything newer — can: open Parlor in one of those and join again.');
+  }
+
+  let bytes;
+  try {
+    bytes = b64url.decode(body);
+  } catch {
+    throw new Error('That code could not be read; some of it is missing or was altered in copying. Copy the whole block and paste it again.');
+  }
+
+  if (tag === 'P1') {
+    try {
+      bytes = await unsqueeze(bytes, 'deflate-raw');
+    } catch {
+      throw new Error('That code could not be unpacked — it was most likely cut short on the way here. Ask for it again and paste all of it.');
+    }
+  }
+
+  let value;
+  try {
+    value = JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    throw new Error('The connection details in that code are damaged. Copy the code again, from its first character to its last.');
+  }
+
   if (!value || !value.sdp || !value.type) throw new Error('That code is missing its connection details.');
   return value;
 }

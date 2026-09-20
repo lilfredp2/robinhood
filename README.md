@@ -37,7 +37,8 @@ There is no signalling server, so the two browsers are introduced by hand:
    an **invite code** — and a link carrying the same code.
 2. They send it to the other person however they like.
 3. The other person clicks **Join with a code**, pastes it, and gets a **reply
-   code** back. (Opening the link fills this in for them.)
+   code** back. Opening the link fills this in for them, and pasting the whole
+   link into the code box works just as well as pasting the code.
 4. The reply goes back to the first window, into *Paste their reply*.
 
 The room opens the moment that reply lands. From then on messages, camera,
@@ -55,7 +56,10 @@ device or camera permission.
 gathering to finish (or four seconds, whichever comes first), so every candidate
 travels inside that one blob and there is no trickle channel to run. The JSON is
 deflated with `CompressionStream` where the browser has it, base64url'd, and
-tagged `P1` (deflated) or `P0` (plain) — roughly 1.7 KB of text to paste.
+tagged `P1` (deflated) or `P0` (plain) — roughly 1.7 KB of text to paste. A code
+that arrives truncated, mangled, or compressed by a browser newer than the one
+reading it is reported as that specific problem, with what to do about it,
+rather than as whichever exception happened to be thrown.
 
 **Media.** Both peers create one audio and one video transceiver *before* the
 offer, so turning a camera on later is a `replaceTrack` call rather than a
