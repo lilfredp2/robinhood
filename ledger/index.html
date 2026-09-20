@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ledger — Portfolio Dashboard</title>
+<meta name="description" content="A lightweight portfolio dashboard: performance, allocation and holdings in one page.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232a78d6'/%3E%3Cpath d='M7 21l5.5-6 4 4L25 10' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M7 21l5.5-6 4 4L25 10" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Ledger</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#holdings">Holdings</a>
+      <a href="#about">About</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme">
+      <span class="theme-dot" aria-hidden="true"></span><span id="theme-label">Auto</span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Portfolio dashboard</p>
+        <h1>Every position, one page.</h1>
+        <p class="lede">Performance against a benchmark, allocation by sector, and a sortable book of holdings — rendered from a single JSON file, with no build step and no tracking.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#dashboard">View the dashboard</a>
+          <a class="btn btn-ghost" href="#about">How it works</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <p class="hero-figure-label">Total portfolio value</p>
+        <p class="hero-number" id="hero-value">—</p>
+        <p class="hero-delta" id="hero-delta"></p>
+        <p class="hero-foot" id="hero-foot"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dashboard" aria-labelledby="dashboard-h">
+    <div class="wrap">
+      <h2 id="dashboard-h" class="section-title">Dashboard</h2>
+
+      <div class="tiles" id="tiles"></div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Portfolio value vs. benchmark</h3>
+            <p class="card-sub">Both series indexed to 100 at the start of the selected range.</p>
+          </div>
+          <div class="filters" role="group" aria-label="Time range">
+            <button type="button" data-range="30">1M</button>
+            <button type="button" data-range="90">3M</button>
+            <button type="button" data-range="0" aria-pressed="true">All</button>
+          </div>
+        </div>
+        <div class="legend" id="perf-legend"></div>
+        <figure class="figure">
+          <div class="chart" id="perf-chart"></div>
+          <figcaption class="figure-cap" id="perf-cap"></figcaption>
+        </figure>
+        <details class="table-view">
+          <summary>View as table</summary>
+          <div class="table-scroll"><table id="perf-table"><caption class="sr-only">Portfolio and benchmark values, monthly</caption></table></div>
+        </details>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Allocation by sector</h3>
+            <p class="card-sub">Share of equity market value. Cash is excluded.</p>
+          </div>
+        </div>
+        <figure class="figure">
+          <div class="chart" id="alloc-chart"></div>
+          <figcaption class="figure-cap">Bars are labeled with their percentage; hover or focus a bar for its market value.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="holdings" aria-labelledby="holdings-h">
+    <div class="wrap">
+      <h2 id="holdings-h" class="section-title">Holdings</h2>
+      <p class="section-sub">Click any column header to sort. Gains and losses are marked with an arrow as well as a color.</p>
+      <div class="card card-flush">
+        <div class="table-scroll">
+          <table class="holdings" id="holdings-table">
+            <caption class="sr-only">Current holdings with market value and unrealized gain or loss</caption>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 id="about-h" class="section-title">How it works</h2>
+      <div class="grid-3">
+        <article class="feature">
+          <h3>One data file</h3>
+          <p>The whole page reads <code>data/portfolio.json</code>. Swap that file — by hand or from a script — and every number, chart and row updates. Nothing else to change.</p>
+        </article>
+        <article class="feature">
+          <h3>No build, no dependencies</h3>
+          <p>Plain HTML, CSS and one ES module. Open <code>index.html</code> over any static server and it runs. Deploys to GitHub Pages as-is.</p>
+        </article>
+        <article class="feature">
+          <h3>Readable by design</h3>
+          <p>Charts ship with a legend, direct labels, keyboard-reachable tooltips and a table view. The palette is validated for color-vision deficiency in both light and dark themes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p><strong>Ledger</strong> — a static portfolio dashboard.</p>
+    <p class="disclaimer" id="disclaimer"></p>
+  </div>
+</footer>
+
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>
