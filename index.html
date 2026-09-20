@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ledger — Portfolio Dashboard</title>
-<meta name="description" content="A lightweight portfolio dashboard: performance, allocation and holdings in one page.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232a78d6'/%3E%3Cpath d='M7 21l5.5-6 4 4L25 10' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<title>Parlor — Messages, Video &amp; Photos</title>
+<meta name="description" content="A private place to message, video chat and share pictures. Peer to peer, no account, no server in the middle.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b5bd6'/%3E%3Cpath d='M9 12h14M9 17h9' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -14,17 +14,23 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M7 21l5.5-6 4 4L25 10" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span>Ledger</span>
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M9 12h14M9 17h9" fill="none" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Parlor</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#dashboard">Dashboard</a>
-      <a href="#holdings">Holdings</a>
-      <a href="#about">About</a>
+      <a href="#room">Room</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
     </nav>
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme">
-      <span class="theme-dot" aria-hidden="true"></span><span id="theme-label">Auto</span>
-    </button>
+    <div class="header-tools">
+      <p class="status" id="status" role="status">
+        <span class="status-dot" data-state="idle" id="status-dot" aria-hidden="true"></span>
+        <span id="status-text">Not connected</span>
+      </p>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch color theme">
+        <span class="theme-dot" aria-hidden="true"></span><span id="theme-label">Auto</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -32,96 +38,155 @@
   <section class="hero" id="top">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow">Portfolio dashboard</p>
-        <h1>Every position, one page.</h1>
-        <p class="lede">Performance against a benchmark, allocation by sector, and a sortable book of holdings — rendered from a single JSON file, with no build step and no tracking.</p>
+        <p class="eyebrow">Private rooms for two</p>
+        <h1>Talk, see each other, send pictures.</h1>
+        <p class="lede">Parlor opens a direct line between two browsers. Messages, video and photos travel straight from one device to the other — there is no account to make and no server holding your conversation.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#dashboard">View the dashboard</a>
-          <a class="btn btn-ghost" href="#about">How it works</a>
+          <button class="btn btn-primary" type="button" data-action="create">Start a room</button>
+          <button class="btn btn-ghost" type="button" data-action="join">Join with a code</button>
         </div>
+        <p class="hero-foot">Prefer to look around first? <button class="linkish" type="button" data-action="demo">Run the loopback demo</button> — it wires a second peer inside this tab so you can try everything on your own.</p>
       </div>
-      <div class="hero-figure">
-        <p class="hero-figure-label">Total portfolio value</p>
-        <p class="hero-number" id="hero-value">—</p>
-        <p class="hero-delta" id="hero-delta"></p>
-        <p class="hero-foot" id="hero-foot"></p>
-      </div>
+      <ul class="hero-points">
+        <li><strong>Messages</strong><span>Typing indicators, timestamps and a log kept only on your device.</span></li>
+        <li><strong>Video &amp; audio</strong><span>Camera, microphone and screen sharing, toggled mid-call.</span></li>
+        <li><strong>Pictures</strong><span>Drag in a photo; it is resized, sent in chunks and collected in a gallery.</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section" id="dashboard" aria-labelledby="dashboard-h">
+  <section class="section" id="room" aria-labelledby="room-h">
     <div class="wrap">
-      <h2 id="dashboard-h" class="section-title">Dashboard</h2>
-
-      <div class="tiles" id="tiles"></div>
-
-      <div class="card">
-        <div class="card-head">
-          <div>
-            <h3 class="card-title">Portfolio value vs. benchmark</h3>
-            <p class="card-sub">Both series indexed to 100 at the start of the selected range.</p>
-          </div>
-          <div class="filters" role="group" aria-label="Time range">
-            <button type="button" data-range="30">1M</button>
-            <button type="button" data-range="90">3M</button>
-            <button type="button" data-range="0" aria-pressed="true">All</button>
-          </div>
+      <div class="section-head">
+        <div>
+          <h2 id="room-h" class="section-title">Your room</h2>
+          <p class="section-sub" id="room-sub">Start a room to get an invite code, or paste one you were sent.</p>
         </div>
-        <div class="legend" id="perf-legend"></div>
-        <figure class="figure">
-          <div class="chart" id="perf-chart"></div>
-          <figcaption class="figure-cap" id="perf-cap"></figcaption>
-        </figure>
-        <details class="table-view">
-          <summary>View as table</summary>
-          <div class="table-scroll"><table id="perf-table"><caption class="sr-only">Portfolio and benchmark values, monthly</caption></table></div>
-        </details>
+        <div class="room-actions">
+          <button class="btn btn-small btn-primary" type="button" data-action="create">Start a room</button>
+          <button class="btn btn-small btn-ghost" type="button" data-action="join">Join a room</button>
+          <button class="btn btn-small btn-danger" type="button" id="leave" hidden>Leave</button>
+        </div>
       </div>
 
-      <div class="card">
-        <div class="card-head">
-          <div>
-            <h3 class="card-title">Allocation by sector</h3>
-            <p class="card-sub">Share of equity market value. Cash is excluded.</p>
+      <div class="room">
+        <section class="stage card" aria-labelledby="stage-h">
+          <h3 class="sr-only" id="stage-h">Video</h3>
+          <div class="stage-video">
+            <video id="remote-video" playsinline autoplay></video>
+            <div class="stage-placeholder" id="stage-placeholder">
+              <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="18" r="8" fill="none" stroke-width="2.5"/><path d="M8 40c2.5-8 8.8-12 16-12s13.5 4 16 12" fill="none" stroke-width="2.5" stroke-linecap="round"/></svg>
+              <p id="stage-placeholder-text">No one has turned a camera on yet.</p>
+            </div>
+            <div class="self-view" id="self-view" hidden>
+              <video id="local-video" playsinline autoplay muted></video>
+              <span class="self-label">You</span>
+            </div>
+            <p class="peer-badge" id="peer-badge" hidden></p>
           </div>
-        </div>
-        <figure class="figure">
-          <div class="chart" id="alloc-chart"></div>
-          <figcaption class="figure-cap">Bars are labeled with their percentage; hover or focus a bar for its market value.</figcaption>
-        </figure>
+          <div class="stage-controls" role="group" aria-label="Call controls">
+            <button class="ctl" type="button" id="btn-cam" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="12" height="11" rx="2.5" fill="none" stroke-width="2"/><path d="M15.5 10.5l5-3v9l-5-3z" fill="none" stroke-width="2" stroke-linejoin="round"/></svg>
+              <span>Camera</span>
+            </button>
+            <button class="ctl" type="button" id="btn-mic" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke-width="2"/><path d="M5.5 11.5a6.5 6.5 0 0013 0M12 18v3" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>Mic</span>
+            </button>
+            <button class="ctl" type="button" id="btn-share" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="13" rx="2" fill="none" stroke-width="2"/><path d="M8 21h8" fill="none" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>Screen</span>
+            </button>
+            <span class="ctl-note" id="ctl-note">Connect to a peer to start sending video.</span>
+          </div>
+        </section>
+
+        <section class="chat card" aria-labelledby="chat-h">
+          <div class="chat-head">
+            <h3 id="chat-h">Messages</h3>
+            <div class="chat-head-tools">
+              <button class="chip" type="button" id="btn-gallery" aria-expanded="false" aria-controls="gallery">Gallery <span class="count" id="gallery-count">0</span></button>
+              <button class="chip" type="button" id="btn-clear">Clear</button>
+            </div>
+          </div>
+
+          <ol class="log" id="log" aria-live="polite" aria-relevant="additions" tabindex="0">
+            <li class="empty" id="log-empty">Nothing here yet. Messages you send and receive stay on this device.</li>
+          </ol>
+
+          <p class="typing" id="typing" hidden><span></span><span></span><span></span> <em id="typing-name">Someone is typing…</em></p>
+
+          <form class="composer" id="composer" autocomplete="off">
+            <label class="sr-only" for="msg">Message</label>
+            <textarea id="msg" name="msg" rows="1" placeholder="Write a message…" maxlength="4000"></textarea>
+            <div class="composer-tools">
+              <button class="icon-btn" type="button" id="btn-attach" aria-label="Attach pictures">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12.5l-7.8 7.8a4.5 4.5 0 01-6.4-6.4l8.5-8.5a3 3 0 014.2 4.2l-8.5 8.5a1.5 1.5 0 01-2.1-2.1l7.8-7.8" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <input type="file" id="file" accept="image/*" multiple hidden>
+              <button class="btn btn-primary btn-small" type="submit" id="send">Send</button>
+            </div>
+          </form>
+          <p class="composer-hint">Drop an image anywhere on this panel, paste one from the clipboard, or use the paperclip.</p>
+        </section>
       </div>
+
+      <section class="gallery card" id="gallery" hidden aria-labelledby="gallery-h">
+        <div class="chat-head">
+          <h3 id="gallery-h">Shared pictures</h3>
+          <button class="chip" type="button" id="btn-gallery-close">Close</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
+        <p class="empty" id="gallery-empty">Pictures sent in this room will collect here.</p>
+      </section>
     </div>
   </section>
 
-  <section class="section" id="holdings" aria-labelledby="holdings-h">
+  <section class="section" id="how" aria-labelledby="how-h">
     <div class="wrap">
-      <h2 id="holdings-h" class="section-title">Holdings</h2>
-      <p class="section-sub">Click any column header to sort. Gains and losses are marked with an arrow as well as a color.</p>
-      <div class="card card-flush">
-        <div class="table-scroll">
-          <table class="holdings" id="holdings-table">
-            <caption class="sr-only">Current holdings with market value and unrealized gain or loss</caption>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about" aria-labelledby="about-h">
-    <div class="wrap">
-      <h2 id="about-h" class="section-title">How it works</h2>
+      <h2 id="how-h" class="section-title">How it works</h2>
+      <ol class="steps">
+        <li><strong>One of you starts a room.</strong> Parlor prepares a connection and hands you an invite code — a long string of text, or a link that carries it.</li>
+        <li><strong>Send it however you like.</strong> Text, email, a note on the fridge. The code describes how to reach your browser; it is not a password and it expires when you close the tab.</li>
+        <li><strong>They paste it back.</strong> Joining produces a reply code. Paste that into the first window and the two browsers connect directly.</li>
+        <li><strong>Everything rides that one link.</strong> Messages, camera, microphone, screen and pictures all travel over the connection you just made.</li>
+      </ol>
       <div class="grid-3">
         <article class="feature">
-          <h3>One data file</h3>
-          <p>The whole page reads <code>data/portfolio.json</code>. Swap that file — by hand or from a script — and every number, chart and row updates. Nothing else to change.</p>
+          <h3>No account, no inbox</h3>
+          <p>There is nothing to sign up for and nowhere for your conversation to sit. The message log lives in this browser's storage and the pictures in its local database — clearing the room deletes both.</p>
         </article>
         <article class="feature">
-          <h3>No build, no dependencies</h3>
-          <p>Plain HTML, CSS and one ES module. Open <code>index.html</code> over any static server and it runs. Deploys to GitHub Pages as-is.</p>
+          <h3>Pictures, sized for sending</h3>
+          <p>Photos are scaled down to 1600px and re-encoded before they leave, then sent in 16&nbsp;KB pieces with a progress bar. Originals never leave your device.</p>
         </article>
         <article class="feature">
-          <h3>Readable by design</h3>
-          <p>Charts ship with a legend, direct labels, keyboard-reachable tooltips and a table view. The palette is validated for color-vision deficiency in both light and dark themes.</p>
+          <h3>Built to be read</h3>
+          <p>Plain HTML, CSS and three ES modules — no framework, no build step, no tracking. Light and dark are separately drawn, and every control is reachable from the keyboard.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="privacy" aria-labelledby="privacy-h">
+    <div class="wrap">
+      <h2 id="privacy-h" class="section-title">Privacy, plainly</h2>
+      <div class="grid-2">
+        <article class="feature">
+          <h3>What stays on your device</h3>
+          <p>Messages, the pictures you send and receive, your display name and your theme choice. Nothing is uploaded, because there is no service behind this page to upload it to.</p>
+        </article>
+        <article class="feature">
+          <h3>What leaves it</h3>
+          <p>Your browser asks a public STUN server for your network address so the two peers can find each other; that is the one outside request Parlor makes. Media itself is encrypted in transit by WebRTC and flows directly between you.</p>
+        </article>
+        <article class="feature">
+          <h3>Where it can fail</h3>
+          <p>Some strict corporate or mobile networks block direct connections. Parlor ships no relay server, so on those networks the connection will not complete — a note appears rather than a silent hang.</p>
+        </article>
+        <article class="feature">
+          <h3>Who you are talking to</h3>
+          <p>An invite code is only as private as the channel you send it over. Anyone holding an unused code can take the other seat, so share it the way you would share a door key.</p>
         </article>
       </div>
     </div>
@@ -130,10 +195,71 @@
 
 <footer class="site-footer">
   <div class="wrap footer-inner">
-    <p><strong>Ledger</strong> — a static portfolio dashboard.</p>
-    <p class="disclaimer" id="disclaimer"></p>
+    <p><strong>Parlor</strong> — a static, peer-to-peer room for two.</p>
+    <p class="muted">No backend, no analytics. Also in this repository: <a href="ledger/">Ledger, a portfolio dashboard</a>.</p>
   </div>
 </footer>
+
+<dialog class="sheet" id="connect">
+  <form method="dialog" class="sheet-close-form"><button class="sheet-close" aria-label="Close">×</button></form>
+  <h2 id="connect-title">Start a room</h2>
+  <p class="sheet-sub" id="connect-sub"></p>
+
+  <ol class="sheet-steps" id="sheet-steps">
+    <li data-step="1">
+      <h3 id="step1-h">Step one</h3>
+      <p class="step-sub" id="step1-sub"></p>
+      <div class="code-block" id="step1-out">
+        <label class="sr-only" for="out-code">Your code</label>
+        <textarea id="out-code" readonly rows="3" spellcheck="false"></textarea>
+        <div class="code-tools">
+          <button class="btn btn-small" type="button" id="copy-code">Copy code</button>
+          <button class="btn btn-small btn-ghost" type="button" id="copy-link">Copy invite link</button>
+          <span class="copy-note" id="copy-note" role="status"></span>
+        </div>
+      </div>
+      <div class="code-block" id="step1-in" hidden>
+        <label class="sr-only" for="in-code">Paste the invite code</label>
+        <textarea id="in-code" rows="3" spellcheck="false" placeholder="Paste the invite code you were sent…"></textarea>
+        <div class="code-tools">
+          <button class="btn btn-small btn-primary" type="button" id="accept-code">Generate my reply</button>
+          <span class="copy-note" id="accept-note" role="status"></span>
+        </div>
+      </div>
+      <p class="working" id="step1-working" hidden>Preparing the connection…</p>
+    </li>
+    <li data-step="2">
+      <h3 id="step2-h">Step two</h3>
+      <p class="step-sub" id="step2-sub"></p>
+      <div class="code-block" id="step2-in">
+        <label class="sr-only" for="reply-code">Paste their reply</label>
+        <textarea id="reply-code" rows="3" spellcheck="false" placeholder="Paste the reply code here…"></textarea>
+        <div class="code-tools">
+          <button class="btn btn-small btn-primary" type="button" id="finish">Connect</button>
+          <span class="copy-note" id="finish-note" role="status"></span>
+        </div>
+      </div>
+      <p class="working" id="step2-waiting" hidden>Waiting for them to connect…</p>
+    </li>
+  </ol>
+
+  <div class="sheet-foot">
+    <label class="field">
+      <span>Your display name</span>
+      <input type="text" id="display-name" maxlength="24" placeholder="Anon">
+    </label>
+    <p class="sheet-error" id="sheet-error" role="alert" hidden></p>
+  </div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox">
+  <form method="dialog" class="sheet-close-form"><button class="sheet-close" aria-label="Close">×</button></form>
+  <img id="lightbox-img" alt="">
+  <p class="lightbox-cap" id="lightbox-cap"></p>
+  <a class="btn btn-small" id="lightbox-download" download>Download</a>
+</dialog>
+
+<div class="drop-veil" id="drop-veil" hidden><p>Drop pictures to send</p></div>
 
 <script type="module" src="assets/app.js"></script>
 </body>
