@@ -1,0 +1,820 @@
+{
+  "generated": "2026-09-18",
+  "disclaimer": "Sample data for demonstration only. Not investment advice and not connected to any brokerage account.",
+  "account": {
+    "equity": 179641.09,
+    "cash": 8420.55,
+    "total": 188061.64,
+    "buyingPower": 16841.1
+  },
+  "history": [
+    {
+      "date": "2026-03-23",
+      "value": 171005.2,
+      "benchmark": 99.36
+    },
+    {
+      "date": "2026-03-24",
+      "value": 172464.23,
+      "benchmark": 100.02
+    },
+    {
+      "date": "2026-03-25",
+      "value": 171597.22,
+      "benchmark": 99.62
+    },
+    {
+      "date": "2026-03-26",
+      "value": 172140.95,
+      "benchmark": 99.86
+    },
+    {
+      "date": "2026-03-27",
+      "value": 170534.57,
+      "benchmark": 99.13
+    },
+    {
+      "date": "2026-03-30",
+      "value": 169274.56,
+      "benchmark": 98.55
+    },
+    {
+      "date": "2026-03-31",
+      "value": 170403.91,
+      "benchmark": 99.06
+    },
+    {
+      "date": "2026-04-01",
+      "value": 169584.74,
+      "benchmark": 98.68
+    },
+    {
+      "date": "2026-04-02",
+      "value": 170374,
+      "benchmark": 99.04
+    },
+    {
+      "date": "2026-04-03",
+      "value": 168846.68,
+      "benchmark": 98.34
+    },
+    {
+      "date": "2026-04-06",
+      "value": 170469.88,
+      "benchmark": 99.07
+    },
+    {
+      "date": "2026-04-07",
+      "value": 171554.03,
+      "benchmark": 99.56
+    },
+    {
+      "date": "2026-04-08",
+      "value": 170272.5,
+      "benchmark": 98.97
+    },
+    {
+      "date": "2026-04-09",
+      "value": 171421.67,
+      "benchmark": 99.49
+    },
+    {
+      "date": "2026-04-10",
+      "value": 172694.44,
+      "benchmark": 100.06
+    },
+    {
+      "date": "2026-04-13",
+      "value": 174268.49,
+      "benchmark": 100.76
+    },
+    {
+      "date": "2026-04-14",
+      "value": 174842.79,
+      "benchmark": 101.02
+    },
+    {
+      "date": "2026-04-15",
+      "value": 176436.04,
+      "benchmark": 101.73
+    },
+    {
+      "date": "2026-04-16",
+      "value": 175697.85,
+      "benchmark": 101.39
+    },
+    {
+      "date": "2026-04-17",
+      "value": 177679.82,
+      "benchmark": 102.28
+    },
+    {
+      "date": "2026-04-20",
+      "value": 179015.44,
+      "benchmark": 102.87
+    },
+    {
+      "date": "2026-04-21",
+      "value": 178544.55,
+      "benchmark": 102.66
+    },
+    {
+      "date": "2026-04-22",
+      "value": 176830.9,
+      "benchmark": 101.88
+    },
+    {
+      "date": "2026-04-23",
+      "value": 176876.18,
+      "benchmark": 101.9
+    },
+    {
+      "date": "2026-04-24",
+      "value": 177725.66,
+      "benchmark": 102.27
+    },
+    {
+      "date": "2026-04-27",
+      "value": 176368.73,
+      "benchmark": 101.66
+    },
+    {
+      "date": "2026-04-28",
+      "value": 176157.51,
+      "benchmark": 101.56
+    },
+    {
+      "date": "2026-04-29",
+      "value": 176454.91,
+      "benchmark": 101.69
+    },
+    {
+      "date": "2026-04-30",
+      "value": 177981.4,
+      "benchmark": 102.37
+    },
+    {
+      "date": "2026-05-01",
+      "value": 176279.02,
+      "benchmark": 101.6
+    },
+    {
+      "date": "2026-05-04",
+      "value": 174991.39,
+      "benchmark": 101.01
+    },
+    {
+      "date": "2026-05-05",
+      "value": 175388.76,
+      "benchmark": 101.19
+    },
+    {
+      "date": "2026-05-06",
+      "value": 176964.34,
+      "benchmark": 101.89
+    },
+    {
+      "date": "2026-05-07",
+      "value": 177446.44,
+      "benchmark": 102.1
+    },
+    {
+      "date": "2026-05-08",
+      "value": 176653.47,
+      "benchmark": 101.74
+    },
+    {
+      "date": "2026-05-11",
+      "value": 176686.66,
+      "benchmark": 101.75
+    },
+    {
+      "date": "2026-05-12",
+      "value": 175412.01,
+      "benchmark": 101.17
+    },
+    {
+      "date": "2026-05-13",
+      "value": 175354.45,
+      "benchmark": 101.14
+    },
+    {
+      "date": "2026-05-14",
+      "value": 175186.02,
+      "benchmark": 101.06
+    },
+    {
+      "date": "2026-05-15",
+      "value": 176449.11,
+      "benchmark": 101.62
+    },
+    {
+      "date": "2026-05-18",
+      "value": 176646.24,
+      "benchmark": 101.71
+    },
+    {
+      "date": "2026-05-19",
+      "value": 177074.58,
+      "benchmark": 101.89
+    },
+    {
+      "date": "2026-05-20",
+      "value": 177578.96,
+      "benchmark": 102.11
+    },
+    {
+      "date": "2026-05-21",
+      "value": 175972.87,
+      "benchmark": 101.39
+    },
+    {
+      "date": "2026-05-22",
+      "value": 175586.62,
+      "benchmark": 101.21
+    },
+    {
+      "date": "2026-05-25",
+      "value": 175904,
+      "benchmark": 101.35
+    },
+    {
+      "date": "2026-05-26",
+      "value": 174267.02,
+      "benchmark": 100.61
+    },
+    {
+      "date": "2026-05-27",
+      "value": 175767.01,
+      "benchmark": 101.28
+    },
+    {
+      "date": "2026-05-28",
+      "value": 176576.05,
+      "benchmark": 101.63
+    },
+    {
+      "date": "2026-05-29",
+      "value": 178010.22,
+      "benchmark": 102.27
+    },
+    {
+      "date": "2026-06-01",
+      "value": 176837.7,
+      "benchmark": 101.74
+    },
+    {
+      "date": "2026-06-02",
+      "value": 176321.56,
+      "benchmark": 101.5
+    },
+    {
+      "date": "2026-06-03",
+      "value": 176041.63,
+      "benchmark": 101.37
+    },
+    {
+      "date": "2026-06-04",
+      "value": 177752.56,
+      "benchmark": 102.14
+    },
+    {
+      "date": "2026-06-05",
+      "value": 179510.51,
+      "benchmark": 102.92
+    },
+    {
+      "date": "2026-06-08",
+      "value": 181341.22,
+      "benchmark": 103.73
+    },
+    {
+      "date": "2026-06-09",
+      "value": 181054.78,
+      "benchmark": 103.6
+    },
+    {
+      "date": "2026-06-10",
+      "value": 181517.01,
+      "benchmark": 103.8
+    },
+    {
+      "date": "2026-06-11",
+      "value": 179801.91,
+      "benchmark": 103.03
+    },
+    {
+      "date": "2026-06-12",
+      "value": 179477.41,
+      "benchmark": 102.88
+    },
+    {
+      "date": "2026-06-15",
+      "value": 179892.05,
+      "benchmark": 103.06
+    },
+    {
+      "date": "2026-06-16",
+      "value": 179452.13,
+      "benchmark": 102.85
+    },
+    {
+      "date": "2026-06-17",
+      "value": 180128.64,
+      "benchmark": 103.15
+    },
+    {
+      "date": "2026-06-18",
+      "value": 181305.15,
+      "benchmark": 103.67
+    },
+    {
+      "date": "2026-06-19",
+      "value": 179761.63,
+      "benchmark": 102.98
+    },
+    {
+      "date": "2026-06-22",
+      "value": 179645.87,
+      "benchmark": 102.92
+    },
+    {
+      "date": "2026-06-23",
+      "value": 181043.65,
+      "benchmark": 103.54
+    },
+    {
+      "date": "2026-06-24",
+      "value": 180028.85,
+      "benchmark": 103.08
+    },
+    {
+      "date": "2026-06-25",
+      "value": 178917.04,
+      "benchmark": 102.58
+    },
+    {
+      "date": "2026-06-26",
+      "value": 179372.29,
+      "benchmark": 102.78
+    },
+    {
+      "date": "2026-06-29",
+      "value": 179036.26,
+      "benchmark": 102.62
+    },
+    {
+      "date": "2026-06-30",
+      "value": 179670.56,
+      "benchmark": 102.9
+    },
+    {
+      "date": "2026-07-01",
+      "value": 180657.4,
+      "benchmark": 103.33
+    },
+    {
+      "date": "2026-07-02",
+      "value": 181615.07,
+      "benchmark": 103.76
+    },
+    {
+      "date": "2026-07-03",
+      "value": 182407.91,
+      "benchmark": 104.1
+    },
+    {
+      "date": "2026-07-06",
+      "value": 181706.88,
+      "benchmark": 103.79
+    },
+    {
+      "date": "2026-07-07",
+      "value": 181240.31,
+      "benchmark": 103.57
+    },
+    {
+      "date": "2026-07-08",
+      "value": 182407.71,
+      "benchmark": 104.09
+    },
+    {
+      "date": "2026-07-09",
+      "value": 183188,
+      "benchmark": 104.43
+    },
+    {
+      "date": "2026-07-10",
+      "value": 182714.42,
+      "benchmark": 104.21
+    },
+    {
+      "date": "2026-07-13",
+      "value": 181220.33,
+      "benchmark": 103.54
+    },
+    {
+      "date": "2026-07-14",
+      "value": 182480.85,
+      "benchmark": 104.1
+    },
+    {
+      "date": "2026-07-15",
+      "value": 182826.72,
+      "benchmark": 104.25
+    },
+    {
+      "date": "2026-07-16",
+      "value": 182786.9,
+      "benchmark": 104.22
+    },
+    {
+      "date": "2026-07-17",
+      "value": 184246.96,
+      "benchmark": 104.87
+    },
+    {
+      "date": "2026-07-20",
+      "value": 185181.34,
+      "benchmark": 105.28
+    },
+    {
+      "date": "2026-07-21",
+      "value": 185910.87,
+      "benchmark": 105.59
+    },
+    {
+      "date": "2026-07-22",
+      "value": 184215.21,
+      "benchmark": 104.84
+    },
+    {
+      "date": "2026-07-23",
+      "value": 183998.59,
+      "benchmark": 104.74
+    },
+    {
+      "date": "2026-07-24",
+      "value": 185409.83,
+      "benchmark": 105.36
+    },
+    {
+      "date": "2026-07-27",
+      "value": 183727.51,
+      "benchmark": 104.61
+    },
+    {
+      "date": "2026-07-28",
+      "value": 184175.46,
+      "benchmark": 104.8
+    },
+    {
+      "date": "2026-07-29",
+      "value": 183165.08,
+      "benchmark": 104.34
+    },
+    {
+      "date": "2026-07-30",
+      "value": 184865.38,
+      "benchmark": 105.09
+    },
+    {
+      "date": "2026-07-31",
+      "value": 185760.46,
+      "benchmark": 105.49
+    },
+    {
+      "date": "2026-08-03",
+      "value": 184647.26,
+      "benchmark": 104.99
+    },
+    {
+      "date": "2026-08-04",
+      "value": 183788.92,
+      "benchmark": 104.6
+    },
+    {
+      "date": "2026-08-05",
+      "value": 182340.58,
+      "benchmark": 103.95
+    },
+    {
+      "date": "2026-08-06",
+      "value": 181306.83,
+      "benchmark": 103.49
+    },
+    {
+      "date": "2026-08-07",
+      "value": 180122.51,
+      "benchmark": 102.95
+    },
+    {
+      "date": "2026-08-10",
+      "value": 178931.11,
+      "benchmark": 102.42
+    },
+    {
+      "date": "2026-08-11",
+      "value": 178961.26,
+      "benchmark": 102.42
+    },
+    {
+      "date": "2026-08-12",
+      "value": 179739.67,
+      "benchmark": 102.77
+    },
+    {
+      "date": "2026-08-13",
+      "value": 181035.7,
+      "benchmark": 103.34
+    },
+    {
+      "date": "2026-08-14",
+      "value": 180785.51,
+      "benchmark": 103.22
+    },
+    {
+      "date": "2026-08-17",
+      "value": 179127.85,
+      "benchmark": 102.48
+    },
+    {
+      "date": "2026-08-18",
+      "value": 179322.98,
+      "benchmark": 102.56
+    },
+    {
+      "date": "2026-08-19",
+      "value": 179585.11,
+      "benchmark": 102.67
+    },
+    {
+      "date": "2026-08-20",
+      "value": 178328.8,
+      "benchmark": 102.11
+    },
+    {
+      "date": "2026-08-21",
+      "value": 178326.79,
+      "benchmark": 102.1
+    },
+    {
+      "date": "2026-08-24",
+      "value": 179300.4,
+      "benchmark": 102.53
+    },
+    {
+      "date": "2026-08-25",
+      "value": 178102.01,
+      "benchmark": 101.99
+    },
+    {
+      "date": "2026-08-26",
+      "value": 176914.92,
+      "benchmark": 101.45
+    },
+    {
+      "date": "2026-08-27",
+      "value": 177548.21,
+      "benchmark": 101.73
+    },
+    {
+      "date": "2026-08-28",
+      "value": 175970.14,
+      "benchmark": 101.02
+    },
+    {
+      "date": "2026-08-31",
+      "value": 174832.63,
+      "benchmark": 100.51
+    },
+    {
+      "date": "2026-09-01",
+      "value": 174720.39,
+      "benchmark": 100.45
+    },
+    {
+      "date": "2026-09-02",
+      "value": 174449.54,
+      "benchmark": 100.32
+    },
+    {
+      "date": "2026-09-03",
+      "value": 173922.29,
+      "benchmark": 100.08
+    },
+    {
+      "date": "2026-09-04",
+      "value": 174706.01,
+      "benchmark": 100.43
+    },
+    {
+      "date": "2026-09-07",
+      "value": 174121.05,
+      "benchmark": 100.16
+    },
+    {
+      "date": "2026-09-08",
+      "value": 174200.63,
+      "benchmark": 100.19
+    },
+    {
+      "date": "2026-09-09",
+      "value": 175302.86,
+      "benchmark": 100.68
+    },
+    {
+      "date": "2026-09-10",
+      "value": 174780.03,
+      "benchmark": 100.44
+    },
+    {
+      "date": "2026-09-11",
+      "value": 176649.69,
+      "benchmark": 101.27
+    },
+    {
+      "date": "2026-09-14",
+      "value": 177165.97,
+      "benchmark": 101.5
+    },
+    {
+      "date": "2026-09-15",
+      "value": 179088.82,
+      "benchmark": 102.35
+    },
+    {
+      "date": "2026-09-16",
+      "value": 178744.9,
+      "benchmark": 102.19
+    },
+    {
+      "date": "2026-09-17",
+      "value": 178402.62,
+      "benchmark": 102.03
+    },
+    {
+      "date": "2026-09-18",
+      "value": 179633.26,
+      "benchmark": 102.58
+    }
+  ],
+  "holdings": [
+    {
+      "symbol": "AAPL",
+      "name": "Apple Inc.",
+      "sector": "Technology",
+      "shares": 152.87,
+      "cost": 168.42,
+      "price": 214.29,
+      "marketValue": 32758.51,
+      "costBasis": 25746.37,
+      "gain": 7012.15,
+      "gainPct": 27.24,
+      "dayPct": 0.9
+    },
+    {
+      "symbol": "MSFT",
+      "name": "Microsoft Corp.",
+      "sector": "Technology",
+      "shares": 57.33,
+      "cost": 342.1,
+      "price": 428.74,
+      "marketValue": 24579.66,
+      "costBasis": 19612.59,
+      "gain": 4967.07,
+      "gainPct": 25.33,
+      "dayPct": 0.27
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA Corp.",
+      "sector": "Technology",
+      "shares": 101.91,
+      "cost": 98.55,
+      "price": 131.06,
+      "marketValue": 13356.32,
+      "costBasis": 10043.23,
+      "gain": 3313.09,
+      "gainPct": 32.99,
+      "dayPct": -1.01
+    },
+    {
+      "symbol": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "sector": "Financials",
+      "shares": 76.44,
+      "cost": 182.3,
+      "price": 207.88,
+      "marketValue": 15890.35,
+      "costBasis": 13935.01,
+      "gain": 1955.34,
+      "gainPct": 14.03,
+      "dayPct": 1.16
+    },
+    {
+      "symbol": "V",
+      "name": "Visa Inc.",
+      "sector": "Financials",
+      "shares": 44.59,
+      "cost": 255.9,
+      "price": 281.44,
+      "marketValue": 12549.41,
+      "costBasis": 11410.58,
+      "gain": 1138.83,
+      "gainPct": 9.98,
+      "dayPct": 1.79
+    },
+    {
+      "symbol": "UNH",
+      "name": "UnitedHealth Group",
+      "sector": "Healthcare",
+      "shares": 22.93,
+      "cost": 512.75,
+      "price": 474.19,
+      "marketValue": 10873.18,
+      "costBasis": 11757.36,
+      "gain": -884.18,
+      "gainPct": -7.52,
+      "dayPct": -0.28
+    },
+    {
+      "symbol": "LLY",
+      "name": "Eli Lilly & Co.",
+      "sector": "Healthcare",
+      "shares": 15.29,
+      "cost": 598.2,
+      "price": 762.35,
+      "marketValue": 11656.33,
+      "costBasis": 9146.48,
+      "gain": 2509.85,
+      "gainPct": 27.44,
+      "dayPct": 0.16
+    },
+    {
+      "symbol": "AMZN",
+      "name": "Amazon.com Inc.",
+      "sector": "Consumer",
+      "shares": 89.17,
+      "cost": 151.88,
+      "price": 186.53,
+      "marketValue": 16632.88,
+      "costBasis": 13543.14,
+      "gain": 3089.74,
+      "gainPct": 22.81,
+      "dayPct": 1.19
+    },
+    {
+      "symbol": "COST",
+      "name": "Costco Wholesale",
+      "sector": "Consumer",
+      "shares": 11.47,
+      "cost": 678.4,
+      "price": 829.1,
+      "marketValue": 9509.78,
+      "costBasis": 7781.25,
+      "gain": 1728.53,
+      "gainPct": 22.21,
+      "dayPct": -0.58
+    },
+    {
+      "symbol": "XOM",
+      "name": "Exxon Mobil Corp.",
+      "sector": "Energy",
+      "shares": 121.02,
+      "cost": 110.25,
+      "price": 104.67,
+      "marketValue": 12667.16,
+      "costBasis": 13342.46,
+      "gain": -675.29,
+      "gainPct": -5.06,
+      "dayPct": 0.34
+    },
+    {
+      "symbol": "NEE",
+      "name": "NextEra Energy",
+      "sector": "Utilities",
+      "shares": 140.13,
+      "cost": 72.15,
+      "price": 68.42,
+      "marketValue": 9587.69,
+      "costBasis": 10110.38,
+      "gain": -522.68,
+      "gainPct": -5.17,
+      "dayPct": -1.12
+    },
+    {
+      "symbol": "CAT",
+      "name": "Caterpillar Inc.",
+      "sector": "Industrials",
+      "shares": 28.03,
+      "cost": 298.6,
+      "price": 341.77,
+      "marketValue": 9579.81,
+      "costBasis": 8369.76,
+      "gain": 1210.06,
+      "gainPct": 14.46,
+      "dayPct": 1.22
+    }
+  ]
+}
